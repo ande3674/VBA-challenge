@@ -40,10 +40,12 @@ Sub Stocks()
         ' Write a result row
         Cells(i, 1).Copy Cells(rowCounter, 9)
         Cells(rowCounter, 10).Value = closingPrice - currentOpeningPrice
-
-        ' !!!!! TODO format cells to be red or green, and to be percentages !!!!!
         Cells(rowCounter, 11).Value = (closingPrice - currentOpeningPrice) / currentOpeningPrice
         Cells(rowCounter, 12).Value = volumeSum
+
+        ' Color Percent Change Cells
+        If Cells(rowCounter, 11).Value < 0 Then Cells(rowCounter, 11).Interior.Color = vbRed
+        If Cells(rowCounter, 11).Value >= 0 Then Cells(rowCounter, 11).Interior.Color = vbGreen
         
         ' Reset variables
         rowCounter = rowCounter + 1
