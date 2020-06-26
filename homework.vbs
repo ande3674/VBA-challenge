@@ -63,7 +63,7 @@ Sub Stocks()
         ' Write a result row
         Cells(i, 1).Copy Cells(rowCounter, 9)
         Cells(rowCounter, 10).Value = closingPrice - currentOpeningPrice
-        Cells(rowCounter, 11).Value = (closingPrice - currentOpeningPrice) / currentOpeningPrice
+        Cells(rowCounter, 11).Value = FormatPercent((closingPrice - currentOpeningPrice) / currentOpeningPrice)
         Cells(rowCounter, 12).Value = volumeSum
 
         ' Color Percent Change Cells
