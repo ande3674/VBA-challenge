@@ -70,6 +70,16 @@ Sub Stocks()
         If Cells(rowCounter, 10).Value < 0 Then Cells(rowCounter, 10).Interior.Color = vbRed
         If Cells(rowCounter, 10).Value >= 0 Then Cells(rowCounter, 10).Interior.Color = vbGreen
         
+        ' greatest inc and dec
+        If Cells(rowCounter, 11).Value > greatestInc Then
+            greatestInc = Cells(rowCounter, 11).Value
+            greatestIncTick = Cells(i, 1).Value
+        End If
+        If Cells(rowCounter, 11).Value < greatestDec Then
+            greatestDec = Cells(rowCounter, 11).Value
+            greatestDecTick = Cells(i, 1).Value
+        End If
+
         ' Reset variables
         rowCounter = rowCounter + 1
         currentTicker = Cells(i + 1, 1).Value
@@ -80,7 +90,11 @@ Sub Stocks()
 
   Next i
 
-  ' Write greatest volume cell
+  ' Write greatest data cells
+  Cells(2, 16).Value = greatestIncTick
+  Cells(2, 17).Value = FormatPercent(greatestInc)
+  Cells(3, 16).Value = greatestDecTick
+  Cells(3, 17).Value = FormatPercent(greatestDec)
   Cells(4, 16).Value = greatestVolTick
   Cells(4, 17).Value = greatestVol
 
