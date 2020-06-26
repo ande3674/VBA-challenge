@@ -44,8 +44,8 @@ Sub Stocks()
         Cells(rowCounter, 12).Value = volumeSum
 
         ' Color Percent Change Cells
-        If Cells(rowCounter, 11).Value < 0 Then Cells(rowCounter, 11).Interior.Color = vbRed
-        If Cells(rowCounter, 11).Value >= 0 Then Cells(rowCounter, 11).Interior.Color = vbGreen
+        If Cells(rowCounter, 10).Value < 0 Then Cells(rowCounter, 10).Interior.Color = vbRed
+        If Cells(rowCounter, 10).Value >= 0 Then Cells(rowCounter, 10).Interior.Color = vbGreen
         
         ' Reset variables
         rowCounter = rowCounter + 1
